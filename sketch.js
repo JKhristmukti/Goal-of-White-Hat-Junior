@@ -4,8 +4,8 @@ const Bodies = Matter.Bodies;
 const Constraint = Matter.Constraint;
 
 var engine, world;
-var box1, pig1,pig3;
-var backgroundImg,platform;
+var box1, pig1,pig2,pig3;
+var platform;
 var bird, slingshot;
 var score=0;
 
@@ -23,6 +23,7 @@ function setup(){
     box1 = new Box(700,320,70,70);
     box2 = new Box(920,320,70,70);
     pig1 = new Pig(810, 350);
+    pig2 = new Pig(1000,380);
     log1 = new Log(810,260,300, PI/2);
 
     box3 = new Box(700,240,70,70);
@@ -47,6 +48,7 @@ function draw(){
     textSize(30);
     fill("blue");
     text("knock Off the hats Off",width-300,50);
+    text("score"+score,50,100);
     Engine.update(engine);
     //strokeWeight(4);
     box1.display();
@@ -55,6 +57,8 @@ function draw(){
     pig1.display();
     pig1.score();
     log1.display();
+    pig2.display();
+    pig2.score();
 
     box3.display();
     box4.display();
@@ -69,7 +73,7 @@ function draw(){
     bird.display();
     platform.display();
     //log6.display();
-    slingshot.display();    
+    slingshot.display();
 }
 
 function mouseDragged(){
